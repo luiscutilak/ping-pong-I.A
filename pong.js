@@ -59,12 +59,7 @@ function drawCanvas() {
     ctx.strokeRect(20, 20, paddleAreaWidth, canvas.height - 40); // Área do jogador
     ctx.strokeRect(canvas.width - paddleAreaWidth - 20, 20, paddleAreaWidth, canvas.height - 40); // Área do computador
 
-    // Linhas horizontais intermediárias
-    const middleHeight = canvas.height / 2;
-    ctx.beginPath();
-    ctx.moveTo(20, middleHeight);
-    ctx.lineTo(canvas.width - 20, middleHeight);
-    ctx.stroke();
+
 }
 
 
@@ -97,12 +92,13 @@ function drawScore() {
     ctx.fillStyle = 'white';
     ctx.font = '24px Arial';
     ctx.textAlign = 'center';
-    
+    const yOffset = 40; // Ajuste vertical para abaixar o placar
+
     // Desenha o placar do jogador
-    ctx.fillText(`Player: ${playerScore}`, canvas.width / 4, 30);
-    
+    ctx.fillText(`Player: ${playerScore}`, canvas.width / 4, yOffset);
+
     // Desenha o placar do computador
-    ctx.fillText(`Computer: ${computerScore}`, (canvas.width / 4) * 3, 30);
+    ctx.fillText(`Computer: ${computerScore}`, (canvas.width / 4) * 3, yOffset);
 }
 
 
