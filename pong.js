@@ -80,6 +80,7 @@ function drawScore() {
 
 
 // Atualiza a posição da bola
+// Atualiza a posição da bola
 function updateBall() {
     ball.x += ball.dx;
     ball.y += ball.dy;
@@ -101,6 +102,10 @@ function updateBall() {
         ball.dx *= -1;
         playSound();
 
+        // Aumenta gradativamente a velocidade da bola
+        ball.dx *= 1.1; // Aumenta 10% da velocidade horizontal
+        ball.dy *= 1.1; // Aumenta 10% da velocidade vertical
+
         // Inteligência simples para o computador
         computer.y = Math.random() * (canvas.height - paddleHeight);
     }
@@ -113,6 +118,10 @@ function updateBall() {
     ) {
         ball.dx *= -1;
         playSound();
+
+        // Aumenta gradativamente a velocidade da bola
+        ball.dx *= 1.1; // Aumenta 10% da velocidade horizontal
+        ball.dy *= 1.1; // Aumenta 10% da velocidade vertical
     }
 
     // Gol do computador
@@ -125,6 +134,7 @@ function updateBall() {
         resetBall();
     }
 }
+
 
 
     // Gol do computador
@@ -151,9 +161,10 @@ function resetBall() {
     // Reseta a bola para o centro com movimento aleatório
     ball.x = canvas.width / 2;
     ball.y = canvas.height / 2;
-    ball.dx = (Math.random() > 0.5 ? 1 : -1) * 4;
-    ball.dy = (Math.random() > 0.5 ? 1 : -1) * 4;
+    ball.dx = (Math.random() > 0.5 ? 1 : -1) * 4; // Velocidade inicial padrão
+    ball.dy = (Math.random() > 0.5 ? 1 : -1) * 4; // Velocidade inicial padrão
 }
+
 
 
 
