@@ -35,10 +35,38 @@ const computer = { x: canvas.width - 30, y: canvas.height / 2 - paddleHeight / 2
 const ball = { x: canvas.width / 2, y: canvas.height / 2, dx: 4, dy: 4 };
 
 // Função para desenhar o canvas
+// Função para desenhar o canvas
 function drawCanvas() {
-    ctx.fillStyle = 'black';
+    // Fundo verde para simular a grama
+    ctx.fillStyle = '#228B22'; // Verde de grama
     ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Linhas brancas da quadra
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 4;
+
+    // Linha central (divisão)
+    ctx.beginPath();
+    ctx.moveTo(canvas.width / 2, 0);
+    ctx.lineTo(canvas.width / 2, canvas.height);
+    ctx.stroke();
+
+    // Linhas de borda da quadra
+    ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40); // Limite externo
+
+    // Área das raquetes
+    const paddleAreaWidth = 80; // Distância das áreas de saque
+    ctx.strokeRect(20, 20, paddleAreaWidth, canvas.height - 40); // Área do jogador
+    ctx.strokeRect(canvas.width - paddleAreaWidth - 20, 20, paddleAreaWidth, canvas.height - 40); // Área do computador
+
+    // Linhas horizontais intermediárias
+    const middleHeight = canvas.height / 2;
+    ctx.beginPath();
+    ctx.moveTo(20, middleHeight);
+    ctx.lineTo(canvas.width - 20, middleHeight);
+    ctx.stroke();
 }
+
 
 // Função para desenhar uma raquete
 function drawPaddle(x, y) {
