@@ -1,19 +1,29 @@
+/* Define um contêiner para o canvas e o botão */
+#gameContainer {
+    position: relative; /* Define um contexto de posicionamento */
+    width: 800px; /* Mesmo tamanho do canvas */
+    margin: 0 auto; /* Centraliza o contêiner na página */
+}
+
+
 #controls {
+    position: absolute;
+    top: 13px; /* Suba mais o botão ajustando esse valor */
+    width: 100%;
     display: flex;
-    justify-content: center; /* Centraliza o botão horizontalmente */
-    margin-bottom: 15px; /* Adiciona espaço entre o botão e o canvas */
+    justify-content: center;
 }
 
 #toggleSound {
     background-color: #0f0; /* Verde Matrix */
     color: black; /* Cor do texto preta */
-    border: 2px solid #0a0; /* Adiciona uma borda verde-escuro para contraste */
+    border: 2px solid #0a0; /* Adiciona uma borda verde-escuro */
     border-radius: 10px; /* Bordas arredondadas */
     padding: 10px 20px; /* Ajusta o tamanho do botão */
-    font-size: 16px; /* Tamanho da fonte reduzido */
+    font-size: 16px; /* Tamanho da fonte */
     font-weight: bold; /* Negrito no texto */
     cursor: pointer; /* Mostra o ponteiro ao passar o mouse */
-    box-shadow: 0px 4px 8px rgba(0, 255, 0, 0.3); /* Adiciona uma sombra verde */
+    box-shadow: 0px 4px 8px rgba(0, 255, 0, 0.3); /* Adiciona sombra verde */
     text-shadow: 0px 0px 5px #0f0; /* Efeito de brilho no texto */
     transition: all 0.3s ease; /* Suaviza as mudanças visuais */
 }
