@@ -1,0 +1,30 @@
+#controls {
+    display: flex;
+    justify-content: center; /* Centraliza o botão horizontalmente */
+    margin-bottom: 15px; /* Adiciona espaço entre o botão e o canvas */
+}
+
+#toggleSound {
+    background-color: #0f0; /* Verde Matrix */
+    color: black; /* Cor do texto preta */
+    border: 2px solid #0a0; /* Adiciona uma borda verde-escuro para contraste */
+    border-radius: 10px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Ajusta o tamanho do botão */
+    font-size: 16px; /* Tamanho da fonte reduzido */
+    font-weight: bold; /* Negrito no texto */
+    cursor: pointer; /* Mostra o ponteiro ao passar o mouse */
+    box-shadow: 0px 4px 8px rgba(0, 255, 0, 0.3); /* Adiciona uma sombra verde */
+    text-shadow: 0px 0px 5px #0f0; /* Efeito de brilho no texto */
+    transition: all 0.3s ease; /* Suaviza as mudanças visuais */
+}
+
+#toggleSound:hover {
+    background-color: #00ff00; /* Verde mais claro ao passar o mouse */
+    transform: scale(1.05); /* Aumenta ligeiramente o botão */
+    box-shadow: 0px 6px 12px rgba(0, 255, 0, 0.5); /* Aumenta a sombra */
+}
+
+#toggleSound:active {
+    transform: scale(0.95); /* Reduz ligeiramente ao clicar */
+    box-shadow: 0px 3px 6px rgba(0, 255, 0, 0.3); /* Reduz a sombra */
+}
