@@ -34,12 +34,34 @@ const player = { x: 20, y: canvas.height / 2 - paddleHeight / 2, speed: 6 };
 const computer = { x: canvas.width - 30, y: canvas.height / 2 - paddleHeight / 2, speed: 4 };
 const ball = { x: canvas.width / 2, y: canvas.height / 2, dx: 4, dy: 4 };
 
-// Função para desenhar o canvas
-// Função para desenhar o canvas
-function drawCanvas() {
-    // Fundo verde para simular a grama
-    ctx.fillStyle = '#228B22'; // Verde de grama
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+// Função que desenha o placar com estilo digital LED
+function drawScore() {
+    const playerX = canvas.width / 4; // Posição X do placar do jogador
+    const computerX = (canvas.width / 4) * 3; // Posição X do placar do computador
+    const rectWidth = 220; // Largura do retângulo de fundo
+    const rectHeight = 80; // Altura do retângulo de fundo
+    const rectYOffset = 10; // Distância do retângulo a partir do topo
+    const scoreYOffset = 55; // Distância do texto da pontuação dentro do retângulo
+
+    // Fundo do placar do jogador
+    ctx.fillStyle = 'black'; // Cor de fundo (preto)
+    ctx.fillRect(playerX - rectWidth / 2, rectYOffset, rectWidth, rectHeight);
+
+    // Fundo do placar do computador
+    ctx.fillRect(computerX - rectWidth / 2, rectYOffset, rectWidth, rectHeight);
+
+    // Estilo do texto (placa digital)
+    ctx.fillStyle = '#FF0000'; // Cor vermelha brilhante (estilo LED)
+    ctx.font = '50px "Digital-7 Mono", Arial, sans-serif';
+    ctx.textAlign = 'center';
+
+    // Nome do jogador
+    ctx.fillText(playerScore.toString().padStart(2, '0'), playerX, rectYOffset + scoreYOffset);
+
+    // Nome do computador
+    ctx.fillText(computerScore.toString().padStart(2, '0'), computerX, rectYOffset + scoreYOffset);
+}
+
 
     // Linhas brancas da quadra
     ctx.strokeStyle = 'white';
@@ -60,7 +82,28 @@ function drawCanvas() {
     ctx.strokeRect(canvas.width - paddleAreaWidth - 20, 20, paddleAreaWidth, canvas.height - 40); // Área do computador
 
 
-}
+    function drawCanvas() {
+        // Limpa o canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+        // Fundo da quadra (grama)
+        ctx.fillStyle = '#2e8b57'; // Verde semelhante à grama
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+        // Linhas da quadra
+        ctx.strokeStyle = 'white';
+        ctx.lineWidth = 4;
+    
+        // Linha central
+        ctx.beginPath();
+        ctx.moveTo(canvas.width / 2, 0);
+        ctx.lineTo(canvas.width / 2, canvas.height);
+        ctx.stroke();
+    
+        // Bordas externas
+        ctx.strokeRect(20, 20, canvas.width - 40, canvas.height - 40);
+    }
+    
 
 
 // Função para desenhar uma raquete
@@ -86,21 +129,6 @@ function drawLimiters() {
     // Limite inferior
     ctx.fillRect(0, canvas.height - limiterHeight, canvas.width, limiterHeight);
 }
-
-//Função que desenha o placar 
-function drawScore() {
-    ctx.fillStyle = 'white';
-    ctx.font = '24px Arial';
-    ctx.textAlign = 'center';
-    const yOffset = 40; // Ajuste vertical para abaixar o placar
-
-    // Desenha o placar do jogador
-    ctx.fillText(`Player: ${playerScore}`, canvas.width / 4, yOffset);
-
-    // Desenha o placar do computador
-    ctx.fillText(`Computer: ${computerScore}`, (canvas.width / 4) * 3, yOffset);
-}
-
 
 
 // Atualiza a posição da bola
